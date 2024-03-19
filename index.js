@@ -1,6 +1,6 @@
 import antfu from '@antfu/eslint-config'
 
-export default function config(options) {
+export default function config(options = {}) {
   return antfu({
     rules: {
       'no-console': 'off',
@@ -16,10 +16,9 @@ export default function config(options) {
           max: 1,
         },
       }],
+      'style/arrow-parens': ['error', 'always'],
       'curly': ['error', 'all'],
       'brace-style': ['error', 'stroustrup', { allowSingleLine: false }],
-      ...(options?.rules || {}),
     },
-    ...(options || {})
-  })
+  }, options)
 }
